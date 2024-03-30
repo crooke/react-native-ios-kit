@@ -1,6 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import RowItem from './RowItem';
 import Icon from './Icon';
@@ -11,7 +12,7 @@ import type { Props as RowProps } from './RowItem';
 
 type Props = RowProps & {
   theme: Theme,
-  onPress: void => void,
+  onPress: () => void,
   info?: string,
 };
 
@@ -28,7 +29,7 @@ class NavigationRow extends React.Component<Props> {
             {info}
           </Body>
         ) : null}
-        <Icon name="ios-arrow-forward" size={22} color={placeholderColor} />
+        <MaterialIcons name="arrow-forward-ios" size={22} color={placeholderColor} />
       </View>
     );
   };

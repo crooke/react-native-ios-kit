@@ -10,7 +10,7 @@ import type { Props as RowProps } from './RowItem';
 type Props = RowProps & {
   theme: Theme,
   selected: boolean,
-  onPress: void => void,
+  onPress: () => void,
 };
 
 class CheckboxRow extends React.Component<Props> {
@@ -19,7 +19,7 @@ class CheckboxRow extends React.Component<Props> {
     if (selected) {
       return (
         <Icon
-          name="ios-checkmark"
+          name="checkmark"
           size={34}
           color={theme.primaryColor}
           theme={theme}

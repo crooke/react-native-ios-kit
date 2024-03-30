@@ -1,17 +1,16 @@
 /* @flow */
 import * as React from 'react';
-import { TextInput, StyleSheet } from 'react-native';
+import { TextInput, TextInputProps, StyleSheet } from 'react-native';
 
 import RowItem from './RowItem';
 import { withTheme } from '../core/theming';
 import type { Theme } from '../types/Theme';
 
-type Props = {
+type Props = TextInputProps & {
   theme: Theme,
   title: string,
-  value: string,
-  placeholder?: string,
   onValueChange: (text: string) => void,
+  // inputProps: TextInputProps
 };
 
 class TextFieldRow extends React.Component<Props> {
@@ -30,9 +29,11 @@ class TextFieldRow extends React.Component<Props> {
       placeholder,
       onValueChange,
       theme: { placeholderColor, primaryColor, textColor },
+      ...inputProps
     } = this.props;
     return (
       <TextInput
+        {...inputProps}
         ref={ref => {
           this.input = ref;
         }}

@@ -7,6 +7,7 @@ import { withTheme } from '../core/theming';
 import type { Theme } from '../types/Theme';
 
 type Props = {
+  title: string;
   theme: Theme,
   value: boolean,
   onValueChange?: (value: boolean) => *,
