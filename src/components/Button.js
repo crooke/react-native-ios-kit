@@ -11,6 +11,7 @@ import type {
 import { withTheme } from '../core/theming';
 
 type Props = {
+  title?: string,
   /**
    * Set custom font color
    */
@@ -61,7 +62,7 @@ type Props = {
    * Custom styles to apply to the button
    */
   disabledStyle?: ViewStyleProp,
-  children: React.Element<*> | React.Element<*>[] | string,
+  children?: React.Element<*> | React.Element<*>[] | string,
   /**
    * Used to locate the item for end to end tests
    */
@@ -130,11 +131,11 @@ class Button extends React.Component<Props> {
     const { inner, container } = this._styleFromProps();
 
     const children =
-      typeof this.props.children === 'string' ? (
+      typeof (this.props.children === 'string' || this.props.title) ? (
         <Text
           style={[this.styles.default.inner, ...inner, this.props.innerStyle]}
         >
-          {this.props.children}
+          {this.props.children || this.props.title}
         </Text>
       ) : (
         this.props.children
